@@ -72,3 +72,7 @@ Periode pengumpulan data berlangsung dari **1 Juli 2015** hingga 3**1 Agustus 20
 * **reservation_status** - Status reservasi, seperti Canceled (dibatalkan), Check-Out (tamu telah check-out), atau No-Show (tamu tidak hadir).  
 * **reservation_status_date** - Tanggal saat status reservasi terakhir kali diperbarui.
 ## 3.Pre Processing
+Bagi kami, mempertahankan kolom dengan nilai null dengan menanganinya memberi  lebih banyak fleksibilitas dan informasi yang berguna untuk analisis. Kami bisa menangani nilai null dengan cara yang lebih cerdas, seperti mengimputasi atau mengganti nilai tersebut dengan label tertentu, dan ini memungkinkan kami untuk terus menggunakan kolom tersebut tanpa kehilangan informasi yang penting. Menghapusnya tanpa pertimbangan bisa mengurangi kualitas dan kedalaman analisis.
+### 3.1 Cek Missing Value
+### 3.2 Encoding fitur
+Fitur kategorikal perlu di-encoding agar model machine learning dapat memprosesnya dengan baik. Tanpa encoding, algoritma tidak dapat memahami data kategorikal dalam bentuk string, yang menghalangi kemampuan model untuk melakukan perhitungan dan analisis yang diperlukan. Encoding mengubah data kategorikal menjadi format numerik yang dapat digunakan oleh model, memungkinkan penghitungan jarak antar data dan mencegah model salah menginterpretasikan urutan atau perbandingan antar kategori. Selain itu, encoding juga dapat meningkatkan akurasi model dan mengurangi bias dalam analisis, sehingga model dapat memanfaatkan informasi dari fitur kategorikal secara maksimal.
