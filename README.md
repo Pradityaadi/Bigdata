@@ -1,9 +1,6 @@
 # Hotel Bookings Data
-<div align="center">
-<a href="https://github.com/ardhian9/pemesanan-hotel">
-        <img src="img/Hotel-booking.jpg" alt="HotelBooking" width=300>
-</a>
-</div>
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/hotel.webp)
+
 
 # "Pendahuluan"
 ## 1.Pernyataan Masalah
@@ -73,7 +70,7 @@ Periode pengumpulan data berlangsung dari **1 Juli 2015** hingga 3**1 Agustus 20
 * **reservation_status_date** - Tanggal saat status reservasi terakhir kali diperbarui.
 
 ## Alur
-![dataload](img/Storyboard_Data_Loading.png)
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/Screenshot%202025-01-05%20125914.png)
 ## 3.Pre Processing
 ### 3.1 Cek Missing Value
 Bagi kami, mempertahankan kolom dengan nilai null dengan menanganinya memberi  lebih banyak fleksibilitas dan informasi yang berguna untuk analisis. Kami bisa menangani nilai null dengan cara yang lebih cerdas, seperti mengimputasi atau mengganti nilai tersebut dengan label tertentu, dan ini memungkinkan kami untuk terus menggunakan kolom tersebut tanpa kehilangan informasi yang penting. Menghapusnya tanpa pertimbangan bisa mengurangi kualitas dan kedalaman analisis.
@@ -98,6 +95,189 @@ Penerapan encoding ini memungkinkan model untuk mengenali hubungan antar kategor
 **Kesimpulan:**
 Secara keseluruhan, penanganan missing value dan encoding fitur kategorikal merupakan langkah-langkah pra-pemrosesan data yang bertujuan untuk meningkatkan kualitas data dan memastikan bahwa dataset siap untuk digunakan dalam model machine learning. Dengan menangani missing value secara tepat dan menerapkan encoding pada fitur kategorikal, dapat meminimalkan risiko bias, meningkatkan efisiensi analisis, dan memastikan bahwa model machine learning dapat berfungsi dengan baik menggunakan data yang telah dipersiapkan secara optimal.
 # "Eksplorasi dan analisa data"
-![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/pembatalan.png)</br>
+**Pembatalan**
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/pembatalan.png)
+Jika di lihat sekilas tidak ada kenaikan dan penurunan yang begitu signifikan, akan tetapi ada tren tersembunyi dimana pada akhir tahun jumlah pengunjung malah berkurang dibandingkan bulan bulan lainnya.
+
+**Negara Pengunjung**
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/negara.png)
+Negara pengunjung terbanyak negara tempat berasal dari negara pengambilan data ini yaitu portugal dengan total 48590 pengunjung dilanjut gibraltar,france,spanyol, belgia, italia, irlandia, belgia, brazil dan belanda
+
+**Status Reservasi**
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/statusreservasi.png)
+Jika dilihat sekilas semakin menyimpulkan bahwasannya menuju akhir tahun terdapat penurunan pengunjung.
+
+# "Machine Learning"
+## Random Forest
+Random Forest adalah ensemble learning method yang menggabungkan beberapa decision tree untuk meningkatkan kinerja model. Setiap tree dalam hutan dibangun menggunakan subset acak dari data pelatihan dan memilih fitur secara acak saat membangun pohon. Prediksi dari model ini didapat dengan melakukan voting (untuk klasifikasi) atau averaging (untuk regresi) dari prediksi setiap pohon.
+## Decision Tree
+Decision Tree adalah model pembelajaran mesin yang digunakan untuk tugas klasifikasi dan regresi. Model ini bekerja dengan membuat serangkaian keputusan yang berdasarkan pada pembagian data ke dalam subset berdasarkan nilai fitur. Setiap keputusan atau cabang dalam pohon mewakili keputusan berdasarkan atribut tertentu, dan setiap daun mewakili hasil keputusan (output).
+## XGBoost
+XGBoost adalah algoritma boosting yang dirancang untuk efisiensi dan kinerja. XGBoost membangun model secara bertahap, dengan setiap pohon baru yang mencoba untuk mengoreksi kesalahan yang dibuat oleh pohon sebelumnya. Algoritma ini menggunakan gradient boosting, yang mengoptimalkan fungsi loss menggunakan gradien, dan memiliki beberapa fitur tambahan untuk mengurangi overfitting, seperti regularisasi.
+# "Hasil"
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/Screenshot%202025-01-05%20134806.png)
+
+Untuk hasil klasifikasi report dari ke-3 algoritma tersebut memiliki accuracy sama baiknya yaitu mencapai 100 persen
+
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/Feature.png)
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/xgb.png)
+
+Dari ketiga algoritma yang digunakan, *reservation_status* muncul sebagai fitur paling penting dalam semua model. Dalam Random Forest, fitur ini memiliki kontribusi terbesar sebesar 69,68%, diikuti oleh *deposit_type* (7,59%) dan *country* (4,05%) serta Lead Time. Pada Decision Tree, *reservation_status* memiliki kontribusi penuh (nilai 1.0), sedangkan pada XGBoost, *reservation_status* tetap menjadi yang paling dominan dengan nilai 66,0, diikuti oleh *country* (20,0) dan *market_segment* (13,0) serta Lead Time. Meskipun ketiga algoritma menunjukkan pentingnya *reservation_status*, model XGBoost mengakui kontribusi fitur tambahan seperti *country* dan *market_segment*, sementara Decision Tree sangat bergantung pada fitur ini saja. Random Forest memberikan kontribusi yang lebih merata antara beberapa fitur, namun *reservation_status* tetap menjadi faktor utama dalam ketiga model tersebut.
+
+Penelitian ini menganalisis kontribusi fitur dalam prediksi data hotel menggunakan tiga algoritma machine learning: Random Forest, Decision Tree, dan XGBoost. Secara keseluruhan dari ketiga algoritma yang diuji, reservation_status muncul sebagai fitur paling dominan, memberikan kontribusi besar terhadap prediksi perilaku reservasi tamu dalam seluruh model. Meskipun ketiga model menilai reservation_status sebagai fitur utama, hasil analisis juga menunjukkan bahwa algoritma seperti XGBoost dan Random Forest mampu mengidentifikasi lebih banyak fitur relevan yang memengaruhi prediksi. Hal ini menunjukkan kompleksitas data yang lebih baik ditangani oleh model yang lebih fleksibel seperti Random Forest dan XGBoost dibandingkan dengan Decision Tree yang cenderung bergantung pada satu fitur dominan.
+
+# "Knowledge Interpretation"
+Berdasar kan hasil dari Ketiga algoritma yang dipakai yaitu XGBoost, Decission tree, dan random forest. Kesemuanya memiliki akurasi maksimal, yang membedakan yaitu fitur fitur yang mempengaruhi hasil tersebut. Untuk kesemuanya ***reservation_status*** menjadi yang utama dikarenakan memang atribut tersebut berbanding lurus dengan keputan pengunjung karena atribut ini merupakan Status reservasi, seperti Canceled (dibatalkan), Check-Out (tamu telah check-out), atau No-Show (tamu tidak hadir), ada juga fitur fitur yang cukup berpengaruh lainnya yaitu :
+
+1. country
+2. deposit_type
+3. market_segment
+4. lead time
+
+## Country
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/CA.png)
+
+Dapat disimpulkan bahwa negara Portugal (PRT) memiliki tingkat pembatalan yang sangat tinggi dibandingkan dengan negara-negara lainnya. Di sisi lain, negara-negara seperti Prancis (FRA), Inggris (GBR), Spanyol (ESP), Jerman (DEU), Irlandia (IRL), Italia (ITA), Belanda (NLD), Brasil (BRA), dan Belgia (BEL) menunjukkan angka pembatalan yang lebih rendah jika dibandingkan dengan yang tidak dibatalkan.
+
+Strategi Pemasaran untuk Portugal (PRT):
+
+* Mungkin perlu ada pendekatan pemasaran yang lebih intensif untuk mengurangi tingkat pembatalan di Portugal, seperti memberikan insentif bagi pelanggan untuk tidak membatalkan, seperti penawaran diskon atau promosi eksklusif.
+* Menyusun ulang kebijakan pembayaran atau deposit untuk mendorong komitmen lebih awal dari pelanggan di Portugal.
+
+Strategi Pemasaran untuk Negara-negara dengan Pembatalan Lebih Rendah:
+
+* Negara-negara seperti Prancis, Inggris, Spanyol, dan lainnya yang memiliki pembatalan lebih rendah bisa diperlakukan dengan pendekatan yang berbeda. Misalnya, Anda bisa meningkatkan upaya pemasaran untuk meningkatkan loyalitas pelanggan di negara-negara ini, atau menyesuaikan layanan untuk menyesuaikan dengan preferensi lokal mereka.
+
+Melakukan analisis lebih mendalam untuk menemukan pola di antara pelanggan dari Portugal, apakah ada faktor tertentu (seperti periode tertentu dalam setahun) yang lebih rentan terhadap pembatalan.
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/PRT.png)
+### Analisis Tren Pembatalan dan Tidak Pembatalan untuk Negara Portugal (PRT)
+
+Dari data yang diberikan, berikut adalah analisis tren pembatalan dan tidak pembatalan per bulan di Portugal dari Juli 2015 hingga Agustus 2017:
+
+#### 1. **Kenaikan Pembatalan Secara Umum**:
+   - Secara keseluruhan, jumlah pembatalan cenderung meningkat dalam beberapa bulan pertama dari Juli 2015 hingga Maret 2016. Ini dapat dilihat dari bulan-bulan awal yang memiliki jumlah pembatalan yang lebih tinggi daripada jumlah yang tidak dibatalkan.
+   - Misalnya, pada bulan **2015-07**, pembatalan (1210) lebih tinggi daripada yang tidak dibatalkan (867), dan tren ini berlanjut hingga **2016-03**.
+   
+#### 2. **Penurunan Pembatalan pada 2016-11 dan 2016-12**:
+   - Pada **2016-11** dan **2016-12**, ada penurunan signifikan dalam pembatalan jika dibandingkan dengan bulan-bulan sebelumnya.
+   - **2016-11** menunjukkan pembatalan (480) yang sangat rendah, bahkan lebih rendah daripada jumlah yang tidak dibatalkan (816), menunjukkan bahwa banyak pelanggan yang tidak membatalkan reservasi mereka.
+   - **2016-12** juga memiliki jumlah pembatalan (919) yang lebih rendah dari bulan-bulan sebelumnya, meskipun masih lebih tinggi dibandingkan yang tidak dibatalkan (812). Hal ini mungkin menunjukkan adanya faktor musiman atau promosi yang mengurangi pembatalan.
+
+#### 3. **Peningkatan Pembatalan pada 2017**:
+   - Pada tahun **2017**, khususnya bulan-bulan pertama, pembatalan meningkat kembali. Misalnya, **2017-01** dan **2017-02** menunjukkan pembatalan yang lebih tinggi daripada bulan-bulan sebelumnya (634 dan 681).
+   - Pembatalan mencapai angka tertinggi pada **2017-05** (1467), yang menunjukkan bahwa terdapat faktor tertentu yang menyebabkan lonjakan pembatalan pada bulan ini.
+
+#### 4. **Fluktuasi yang Signifikan**:
+   - Secara keseluruhan, meskipun ada tren peningkatan dan penurunan, angka pembatalan cenderung berfluktuasi di sekitar angka tertentu.
+   - Ada bulan-bulan tertentu dengan jumlah pembatalan yang sangat tinggi, seperti pada **2016-06** (1557) dan **2017-05** (1467), diikuti oleh bulan dengan pembatalan yang lebih rendah.
+   
+#### 5. **Perbedaan Tren Musiman**:
+   - Data ini juga menunjukkan adanya pengaruh musiman terhadap pembatalan. Misalnya, pada **2016-12** dan **2017-08**, pembatalan cenderung lebih rendah, yang mungkin terkait dengan liburan atau periode musim tinggi ketika permintaan lebih stabil.
+
+#### **Kesimpulan**:
+- **Tantangan Pembatalan**: Diperlukan strategi untuk mengurangi pembatalan, terutama pada bulan-bulan dengan tingkat pembatalan tinggi. Ini bisa mencakup penawaran diskon atau insentif untuk tidak membatalkan reservasi, serta memperbaiki komunikasi dan layanan pelanggan.
+  
+- **Pemahaman Musiman**: Analisis musiman penting untuk memahami kapan permintaan dan pembatalan mencapai puncaknya, sehingga dapat mempersiapkan kapasitas dan penawaran dengan lebih baik.
+
+- **Strategi Pemulihan**: Untuk bulan-bulan dengan tingkat pembatalan yang tinggi, perusahaan hotel bisa mempertimbangkan cara untuk memulihkan atau menarik kembali pelanggan yang mungkin batal, seperti menawarkan pengembalian dana parsial atau perubahan tanggal.
+
+## Deposit Type
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/DEPOSIT.png)
+
+Berdasarkan data diatas mengenai tipe deposit dan tingkat pembatalan, berikut adalah beberapa keputusan yang dapat diambil sebagai pimpinan hotel:
+
+- **Tingkat Pembatalan**:
+  - Tipe deposit **No Deposit** memiliki lebih banyak pengunjung yang tidak membatalkan dibandingkan yang membatalkan.
+  - Tipe deposit **Non-Refundable** dan **Refundable** cenderung memiliki lebih banyak pengunjung yang tidak membatalkan dibandingkan yang membatalkan.
+
+### Keputusan yang Dapat Diambil:
+
+1. **Fokus pada Promosi dan Insentif untuk Tipe No Deposit**:
+   - **No Deposit** memiliki banyak pengunjung yang tidak membatalkan, jadi ini bisa menjadi opsi yang menarik untuk lebih sering digunakan dalam promosi. Anda bisa mempertimbangkan untuk membuat lebih banyak paket yang menawarkan opsi ini.
+   - Memberikan insentif lebih lanjut seperti diskon atau layanan tambahan untuk pengunjung yang memilih tipe **No Deposit**, yang terbukti tidak mudah membatalkan.
+
+2. **Tingkatkan Penawaran Non-Refundable**:
+   - Meskipun **Non-Refundable** lebih sedikit digunakan, tipe ini memberikan lebih banyak stabilitas keuangan karena pembayaran tidak dapat dikembalikan. Anda bisa meningkatkan penawaran untuk tipe ini, seperti menawarkan tarif lebih murah untuk tamu yang memilih **Non-Refundable**.
+   - Untuk meningkatkan konversi dari **Non-Refundable**, Anda bisa memberikan penawaran spesial seperti tambahan fasilitas atau layanan ekstra.
+
+3. **Perbaiki Kebijakan Refundable**:
+   - Mengingat tipe **Refundable** memiliki jumlah pengunjung yang lebih sedikit, ini bisa menunjukkan bahwa orang cenderung lebih memilih opsi **Non-Refundable** atau **No Deposit** karena faktor kenyamanan harga atau kemudahan.
+   - Juga mempertimbangkan untuk mempromosikan lebih agresif opsi **Refundable** untuk pengunjung yang membutuhkan lebih banyak fleksibilitas. Mungkin dapat memberikan lebih banyak jaminan atau peningkatan layanan yang dapat menarik lebih banyak pelanggan untuk memilih tipe ini.
+
+4. **Strategi untuk Menurunkan Tingkat Pembatalan pada Tipe Non-Refundable dan Refundable**:
+   - Meskipun pembatalan lebih sering terjadi pada tipe **Refundable**, juga bisa menambahkan kebijakan yang memperkecil kemungkinan pembatalan, seperti pengenaan biaya pembatalan atau persyaratan lebih ketat untuk pengembalian uang.
+   - Mengingat pembatalan pada **Non-Refundable** dan **Refundable** relatif lebih rendah, memanfaatkan tipe ini untuk membuat kebijakan lebih keras terhadap pembatalan. Memberikan pemahaman yang lebih jelas tentang ketentuan ini di situs web bisa membantu menurunkan pembatalan.
 
 
+### Kesimpulan:
+- **No Deposit** memiliki potensi lebih besar untuk pengunjung yang tidak membatalkan, jadi bisa lebih dipromosikan.
+- **Non-Refundable** bisa diperkaya dengan promosi tambahan untuk menarik lebih banyak pengunjung.
+- **Refundable** perlu lebih diperkenalkan dengan layanan tambahan untuk membuatnya lebih menarik bagi pelanggan yang membutuhkan fleksibilitas.
+
+## Market Segment
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/MARKET.png)
+
+### Market Segment:
+  1. **Online TA** (Online Travel Agent) adalah segmen dengan pengunjung terbanyak, diikuti oleh **Offline TA/TO** (Travel Agents / Tour Operators), **Groups**, **Direct**, **Corporate**, **Complementary**, **Aviation**, dan **Undefined**.
+  2. **Tingkat Pembatalan**:
+     Secara umum, tingkat pembatalan lebih banyak **Tidak Batal** dibandingkan dengan **Batal** pada hampir semua segmen pasar, kecuali pada segmen **Groups** yang menunjukkan lebih banyak pembatalan.
+
+### Keputusan yang Dapat Kami Ambil:
+
+1. **Fokus pada Promosi untuk Segmen Online TA**:
+   - **Online TA** memiliki jumlah pengunjung terbanyak dan tingkat pembatalannya relatif rendah. Kami bisa mempertimbangkan untuk menjalin lebih banyak kemitraan dengan agen perjalanan online (OTA) untuk meningkatkan visibilitas hotel dan menarik lebih banyak pengunjung.
+   - Menawarkan penawaran khusus atau diskon bagi pengunjung yang memesan melalui OTA dapat memperkuat hubungan kami dengan agen ini dan meningkatkan kedatangan tamu.
+
+2. **Tingkatkan Penawaran untuk Segmen Offline TA/TO**:
+   - **Offline TA/TO** memiliki jumlah pengunjung yang signifikan dan tingkat pembatalan yang rendah, jadi ini adalah segmen yang patut diperhatikan lebih lanjut. Kami dapat bekerja lebih erat dengan agen perjalanan offline untuk menciptakan penawaran eksklusif atau paket bundling yang menarik bagi mereka.
+   - Memperkenalkan paket perjalanan yang lebih murah atau eksklusif untuk pasar ini juga bisa menjadi strategi yang baik untuk meningkatkan pemesanan.
+
+3. **Penanganan Segmen Groups**:
+   - Pada segmen **Groups**, yang memiliki tingkat pembatalan lebih tinggi, kami perlu mempertimbangkan untuk memperkenalkan kebijakan pembatalan yang lebih ketat atau biaya pembatalan yang lebih tinggi untuk memitigasi risiko pembatalan mendadak.
+   - Kami juga bisa menyediakan fleksibilitas dalam hal peraturan pembatalan untuk grup besar, dengan menawarkan potongan harga atau insentif bagi grup yang memesan dalam jumlah besar, untuk mendorong komitmen dari pihak yang memesan.
+
+4. **Tingkatkan Penawaran untuk Segmen Direct dan Corporate**:
+   - **Direct** (langsung) dan **Corporate** (korporat) adalah segmen yang biasanya memiliki stabilitas lebih tinggi dalam hal pemesanan. Kami dapat menawarkan lebih banyak paket atau keanggotaan loyalitas bagi tamu yang datang langsung ke hotel atau perusahaan yang melakukan pemesanan massal.
+   - Menyediakan harga khusus untuk perusahaan yang melakukan pemesanan korporat atau menawarkan program loyalitas untuk tamu yang sering datang langsung bisa menjadi strategi yang efektif.
+
+5. **Analisis Segmen Complementary dan Aviation**:
+   - **Complementary** (komplementer) dan **Aviation** (maskapai penerbangan) memiliki lebih sedikit pengunjung, namun bisa menjadi segmen yang penting jika kami ingin mengembangkan kemitraan dengan maskapai atau penyedia layanan komplementer.
+   - Bekerja sama dengan maskapai penerbangan untuk menawarkan paket khusus atau berkolaborasi dengan sektor-sektor terkait bisa memberikan peluang pemasaran tambahan.
+
+6. **Optimalkan Segmen Undefined**:
+   - **Undefined** (tidak terdefinisi) biasanya menunjukkan pengunjung yang tidak tercatat dalam kategori pasar tertentu. Mungkin ini adalah area di mana kami perlu melakukan pengumpulan data yang lebih baik dan segmentasi pasar lebih lanjut untuk mengidentifikasi potensi pasar dan memanfaatkannya.
+
+### Kesimpulan:
+- **Online TA** dan **Offline TA/TO** adalah segmen pasar yang memiliki tingkat pembatalan rendah dan merupakan peluang besar untuk mengembangkan kerjasama lebih lanjut.
+- Untuk **Groups**, perlu memperkenalkan kebijakan lebih ketat terkait pembatalan, tetapi dengan menawarkan insentif yang lebih besar, ini dapat menjadi segmen yang menguntungkan.
+- **Direct** dan **Corporate** merupakan segmen yang stabil dan penting, yang dapat diberikan keuntungan lebih seperti diskon dan program loyalitas.
+- Perlu lebih banyak analisis untuk segmen **Complementary** dan **Aviation** serta segmentasi pasar **Undefined** untuk memaksimalkan peluang.
+
+## Lead Time
+![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/LEAD.png)
+
+Berikut adalah strategi yang bisa diambil berdasarkan pembagian **Lead Time** dan tingkat pembatalan:
+
+### 1. **Pembagian Lead Time per 50 (0-750)**
+Lead time dibagi dalam interval 50, mulai dari 0 hingga 750. Kami akan menganalisis tingkat pembatalan pada rentang lead time ini, dengan fokus pada perubahan tren pembatalan.
+
+### 2. **Tingkat Pembatalan pada Lead Time**
+- **0 hingga 250**: Pada rentang ini, kami akan melihat bahwa tingkat pembatalan lebih banyak **Tidak Batal** daripada **Batal**.
+- **250 ke atas**: Di atas 250, kebalikannya terjadi, yaitu tingkat pembatalan lebih banyak **Batal** daripada **Tidak Batal**.
+
+Berdasarkan hal ini, berikut adalah langkah yang dapat diambil:
+
+### Keputusan Berdasarkan Analisis:
+1. **Untuk Lead Time 0 hingga 250**:
+   - Dapat memanfaatkan **tidak banyak pembatalan** untuk meningkatkan kepercayaan tamu dan melakukan promosi untuk pemesanan dalam jangka waktu pendek (terutama untuk lead time rendah).
+   - Bisa juga menawarkan penawaran khusus untuk tamu yang melakukan pemesanan lebih awal dengan lead time yang lebih pendek, misalnya diskon atau paket spesial untuk jangka waktu mendekati kedatangan (misalnya, 0 hingga 100 hari sebelumnya).
+   - Ini bisa mendorong lebih banyak tamu untuk memesan di hotel tanpa khawatir melakukan pembatalan.
+
+2. **Untuk Lead Time 250 hingga 750**:
+   - Pada rentang ini, harus lebih berhati-hati karena pembatalan lebih banyak terjadi, terutama setelah **250 hari ke atas**. Oleh karena itu, bisa menerapkan kebijakan pembatalan yang lebih ketat atau biaya pembatalan tambahan bagi tamu dengan lead time yang lebih panjang.
+   - Jika memungkinkan,bisa menawarkan insentif untuk tamu yang memesan jauh-jauh hari, tetapi dengan syarat bahwa mereka melakukan pemesanan dengan kebijakan pembatalan yang lebih ketat atau non-refundable.
+   - Mempertimbangkan promosi untuk **non-refundable deposit** atau memaksa pembatalan hanya dalam waktu terbatas setelah pemesanan bisa mengurangi risiko pembatalan di lead time panjang.
+
+### 3. **Strategi Berdasarkan Tren Pembatalan**:
+- **Untuk rentang lead time 0 hingga 250** (lebih banyak tidak batal): Fokus pada **penawaran insentif untuk mendorong pemesanan** dalam jangka waktu dekat dan meningkatkan pemesanan langsung.
+- **Untuk rentang lead time 250 hingga 750** (lebih banyak batal): Terapkan **biaya pembatalan lebih tinggi** atau kebijakan lebih ketat dan tawarkan **penawaran non-refundable** untuk meminimalisir kerugian akibat pembatalan.
