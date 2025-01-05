@@ -71,6 +71,9 @@ Periode pengumpulan data berlangsung dari **1 Juli 2015** hingga 3**1 Agustus 20
 * **total_of_special_requests** - Jumlah permintaan khusus dari pelanggan, seperti tempat tidur twin atau kamar di lantai atas.  
 * **reservation_status** - Status reservasi, seperti Canceled (dibatalkan), Check-Out (tamu telah check-out), atau No-Show (tamu tidak hadir).  
 * **reservation_status_date** - Tanggal saat status reservasi terakhir kali diperbarui.
+
+## Alur
+![dataload](img/Storyboard_Data_Loading.png)
 ## 3.Pre Processing
 ### 3.1 Cek Missing Value
 Bagi kami, mempertahankan kolom dengan nilai null dengan menanganinya memberi  lebih banyak fleksibilitas dan informasi yang berguna untuk analisis. Kami bisa menangani nilai null dengan cara yang lebih cerdas, seperti mengimputasi atau mengganti nilai tersebut dengan label tertentu, dan ini memungkinkan kami untuk terus menggunakan kolom tersebut tanpa kehilangan informasi yang penting. Menghapusnya tanpa pertimbangan bisa mengurangi kualitas dan kedalaman analisis.
