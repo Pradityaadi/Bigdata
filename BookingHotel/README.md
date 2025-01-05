@@ -281,3 +281,11 @@ Berdasarkan hal ini, berikut adalah langkah yang dapat diambil:
 ### 3. **Strategi Berdasarkan Tren Pembatalan**:
 - **Untuk rentang lead time 0 hingga 250** (lebih banyak tidak batal): Fokus pada **penawaran insentif untuk mendorong pemesanan** dalam jangka waktu dekat dan meningkatkan pemesanan langsung.
 - **Untuk rentang lead time 250 hingga 750** (lebih banyak batal): Terapkan **biaya pembatalan lebih tinggi** atau kebijakan lebih ketat dan tawarkan **penawaran non-refundable** untuk meminimalisir kerugian akibat pembatalan.
+
+
+## Lisensi
+Proyek ini dilisensikan di bawah [colab License](https://colab.research.google.com/drive/1Y6RJcYETbYcMIkfgzizHUyLIZ4l5fQxm#scrollTo=spChRZ_jIQ4C).
+
+## Nama Kelompok
+- 👨‍💻Muhamad Minan Nur Mu'alim(202110370311197)
+- 👨‍💻Praditya Adi Saputra(202110370311181)
