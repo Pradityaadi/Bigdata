@@ -97,3 +97,5 @@ Penerapan encoding ini memungkinkan model untuk mengenali hubungan antar kategor
 
 **Kesimpulan:**
 Secara keseluruhan, penanganan missing value dan encoding fitur kategorikal merupakan langkah-langkah pra-pemrosesan data yang bertujuan untuk meningkatkan kualitas data dan memastikan bahwa dataset siap untuk digunakan dalam model machine learning. Dengan menangani missing value secara tepat dan menerapkan encoding pada fitur kategorikal, dapat meminimalkan risiko bias, meningkatkan efisiensi analisis, dan memastikan bahwa model machine learning dapat berfungsi dengan baik menggunakan data yang telah dipersiapkan secara optimal.
+# "Eksplorasi dan analisa data"
+![dataload]("C:\Users\HP\Downloads\pembatalan.png")
