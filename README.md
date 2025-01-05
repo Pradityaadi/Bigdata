@@ -1,4 +1,9 @@
 # Hotel Bookings Data
+<div align="center">
+<a href="https://github.com/ardhian9/pemesanan-hotel">
+        <img src="img/Hotel-booking.jpg" alt="HotelBooking" width=300>
+</a>
+</div>
 
 # "Pendahuluan"
 ## 1.Pernyataan Masalah
@@ -66,3 +71,4 @@ Periode pengumpulan data berlangsung dari **1 Juli 2015** hingga 3**1 Agustus 20
 * **total_of_special_requests** - Jumlah permintaan khusus dari pelanggan, seperti tempat tidur twin atau kamar di lantai atas.  
 * **reservation_status** - Status reservasi, seperti Canceled (dibatalkan), Check-Out (tamu telah check-out), atau No-Show (tamu tidak hadir).  
 * **reservation_status_date** - Tanggal saat status reservasi terakhir kali diperbarui.
+## 3.Pre Processing
