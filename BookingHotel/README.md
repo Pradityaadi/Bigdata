@@ -8,7 +8,7 @@ Industri perhotelan merupakan sektor yang sangat dinamis yang bergantung pada ti
 
 Mengapa harus tertarik dengan hal ini? Karena setiap pembatalan yang terjadi dapat memengaruhi **profitabilitas** hotel. Dengan memahami faktor-faktor yang memengaruhi pembatalan, hotel dapat menerapkan kebijakan ***yang lebih terarah*** untuk mengurangi jumlah pembatalan dan meningkatkan tingkat hunian. Hal ini tidak hanya menguntungkan secara finansial, tetapi juga meningkatkan pengalaman pelanggan.
 ## 2.Rencana Mengatasi Masalah:
-Untuk mengatasi masalah ini, kami berencana menganalisis data pemesanan hotel yang mencakup informasi tentang **status pembatalan, jenis hotel, jumlah tamu, jenis kamar yang dipesan, lama menginap, dan faktor lain seperti negara asal tamu dan jenis pemesanan**. Kami akan menggunakan metode analisis data eksploratif menggunakana** machine learning** untuk memahami pola yang ada, serta khususnya teknik **klasifikasi** untuk memprediksi kemungkinan pembatalan berdasarkan data yang ada.
+Untuk mengatasi masalah ini, kami berencana menganalisis data pemesanan hotel yang mencakup informasi tentang **status pembatalan, jenis hotel, jumlah tamu, jenis kamar yang dipesan, lama menginap, dan faktor lain seperti negara asal tamu dan jenis pemesanan**. Kami akan menggunakan metode analisis data eksploratif menggunakan **machine learning** untuk memahami pola yang ada, serta khususnya teknik **klasifikasi** untuk memprediksi kemungkinan pembatalan berdasarkan data yang ada.
 ## 3.Pendekatan/ Teknik Analisis yang Diusulkan:
 **Pendekatan yang akan digunakan meliputi beberapa langkah analisis:**
 
@@ -34,8 +34,9 @@ Data ini berasal dari **Antonio, Almeida, dan Nunes (2019)** yang mana ini merup
 
 Data ini sangat berguna untuk berbagai analisis seperti prediksi pembatalan pemesanan, segmentasi pelanggan berdasarkan pola pemesanan, dan perencanaan operasional hotel. Misalnya, dengan analisis pola kedatangan tamu, hotel dapat mengoptimalkan alokasi sumber daya seperti staf atau tempat parkir. Dengan tambahan alat analisis seperti tsibble, fable, dan feasts, data ini juga mendukung analisis deret waktu, seperti prediksi musiman pemesanan dan deteksi pola fluktuasi permintaan.
 ## 2.Informasi data
-Periode pengumpulan data berlangsung dari **1 Juli 2015** hingga 3**1 Agustus 2017** dengan fokus pengambilan data di negara **Portugal**. Hotel Resor (H1) berlokasi di wilayah **Algarve**, sedangkan Hotel Kota (H2) berlokasi di kota **Lisbon**. Dengan kumpulan data yang mencakup** 32 variabel** dan total **119.390 raw data**. Dari jumlah tersebut, **40.060 raw data** berasal dari Hotel Resor (H1), sedangkan **79.330 raw data** lainnya berasal dari Hotel Kota (H2). Data ini dikumpulkan secara real time tanpa menyertakan informasi yang dapat mengidentifikasi hotel atau pelanggan tertentu.</br>
-***teks yang dimiringkan*Variabel - Deskripsi** </br>
+Periode pengumpulan data berlangsung dari **1 Juli 2015** hingga **31 Agustus 2017** dengan fokus pengambilan data di negara **Portugal**. Hotel Resor (H1) berlokasi di wilayah **Algarve**, sedangkan Hotel Kota (H2) berlokasi di kota **Lisbon**. Dengan kumpulan data yang mencakup **32 variabel** dan total **119.390 raw data**. Dari jumlah tersebut, **40.060 raw data** berasal dari Hotel Resor (H1), sedangkan **79.330 raw data** lainnya berasal dari Hotel Kota (H2). Data ini dikumpulkan secara real time tanpa menyertakan informasi yang dapat mengidentifikasi hotel atau pelanggan tertentu.</br>
+* **teks yang dimiringkan*Variabel - Deskripsi**
+  
 * **hotel** - Jenis hotel: Resort Hotel (H1) atau City Hotel (H2).  
 * **is_canceled** - Status pembatalan reservasi, dengan 1 menunjukkan reservasi dibatalkan dan 0 tidak dibatalkan.  
 * **lead_time** - Selang waktu dalam hari antara pemesanan diterima hingga tanggal kedatangan.  
@@ -94,6 +95,7 @@ Penerapan encoding ini memungkinkan model untuk mengenali hubungan antar kategor
 
 **Kesimpulan:**
 Secara keseluruhan, penanganan missing value dan encoding fitur kategorikal merupakan langkah-langkah pra-pemrosesan data yang bertujuan untuk meningkatkan kualitas data dan memastikan bahwa dataset siap untuk digunakan dalam model machine learning. Dengan menangani missing value secara tepat dan menerapkan encoding pada fitur kategorikal, dapat meminimalkan risiko bias, meningkatkan efisiensi analisis, dan memastikan bahwa model machine learning dapat berfungsi dengan baik menggunakan data yang telah dipersiapkan secara optimal.
+
 # "Eksplorasi dan analisa data"
 **Pembatalan**
 ![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/pembatalan.png)
@@ -114,6 +116,7 @@ Random Forest adalah ensemble learning method yang menggabungkan beberapa decisi
 Decision Tree adalah model pembelajaran mesin yang digunakan untuk tugas klasifikasi dan regresi. Model ini bekerja dengan membuat serangkaian keputusan yang berdasarkan pada pembagian data ke dalam subset berdasarkan nilai fitur. Setiap keputusan atau cabang dalam pohon mewakili keputusan berdasarkan atribut tertentu, dan setiap daun mewakili hasil keputusan (output).
 ## XGBoost
 XGBoost adalah algoritma boosting yang dirancang untuk efisiensi dan kinerja. XGBoost membangun model secara bertahap, dengan setiap pohon baru yang mencoba untuk mengoreksi kesalahan yang dibuat oleh pohon sebelumnya. Algoritma ini menggunakan gradient boosting, yang mengoptimalkan fungsi loss menggunakan gradien, dan memiliki beberapa fitur tambahan untuk mengurangi overfitting, seperti regularisasi.
+
 # "Hasil"
 ![Deskripsi gambar](https://raw.githubusercontent.com/Pradityaadi/Bigdata/main/Screenshot%202025-01-05%20134806.png)
 
